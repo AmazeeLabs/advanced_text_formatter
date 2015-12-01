@@ -139,6 +139,7 @@ function _advanced_text_formatter_widget_text_format_alter(&$element, FormStateI
     $info = element_info('text_format');
     $element['#pre_render'] = empty($info['#pre_render']) ? array() : $info['#pre_render'];
   }
+  $element['#entity_type'] = $context['items']->getFieldDefinition()->getTargetEntityTypeId();
 
   $element['#pre_render'][] = '_advanced_text_formatter_field_add_token_tree';
 }
